@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <!-- Google Font: Montserrat and Roboto Slab for description -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = urlParams.get("product");
+
+            const products = {
+                1: { 
+                    name: "RGB Gaming PC Case", 
+                    image: "images/pc_case.jpg", 
+                    price: "$120",
+                    desc: "This stunning RGB gaming PC case features a sleek tempered glass side panel, allowing you to showcase your powerful components in style. Equipped with customizable RGB lighting, it enhances your gaming setup with a futuristic look. The case provides excellent airflow, multiple fan mounting options, and easy cable management, ensuring both aesthetics and performance. Whether you're building a high-end gaming rig or a workstation, this case delivers durability, expandability, and eye-catching design."
+                },
+                2: { 
+                    name: "NVIDIA RTX 4090", 
+                    image: "images/gpu.jpg", 
+                    price: "$1,599",
+                    desc: "The NVIDIA RTX 4090 is the ultimate graphics card for gaming and content creation. Built on the cutting-edge Ada Lovelace architecture, it delivers unrivaled performance, ray-traced graphics, and AI-powered enhancements. With 24GB of GDDR6X memory, this powerhouse GPU supports 8K gaming, real-time ray tracing, and DLSS 3.0, ensuring ultra-smooth gameplay and breathtaking visuals."
+                },
+                3: { 
+                    name: "Intel Core i9 13900K", 
+                    image: "images/cpu.jpg", 
+                    price: "$589",
+                    desc: "Unleash next-level computing with the Intel Core i9 13900K processor. Featuring 24 cores and 32 threads, this beast delivers unmatched multitasking and gaming performance. With a turbo boost clock speed of up to 5.8GHz, it effortlessly handles the most demanding workloads, including 4K gaming, video editing, and 3D rendering."
+                },
+                4: { 
+                    name: "Logitech G502", 
+                    image: "images/mouse.jpg", 
+                    price: "$49",
+                    desc: "The Logitech G502 gaming mouse is designed for precision and speed. Featuring the HERO 25K sensor, it provides exceptional tracking accuracy with up to 25,600 DPI. The adjustable weight system allows for customized balance and comfort, while the 11 programmable buttons give you complete control over your gameplay."
+                },
+                5: { 
+                    name: "Razer BlackWidow", 
+                    image: "images/keyboard.jpg", 
+                    price: "$129",
+                    desc: "Experience unparalleled responsiveness with the Razer BlackWidow mechanical gaming keyboard. Equipped with Razer Green switches, it delivers satisfying tactile feedback and ultra-fast actuation. The full RGB Chroma lighting lets you customize every key to match your setup."
+                },
+                6: { 
+                    name: "Alienware 27” Monitor", 
+                    image: "images/monitor.jpg", 
+                    price: "$499",
+                    desc: "Elevate your gaming experience with the Alienware 27” monitor, featuring a stunning 240Hz refresh rate and a 1ms response time. This IPS display delivers vibrant colors, deep contrasts, and ultra-smooth gameplay. With NVIDIA G-Sync and AMD FreeSync technology, you get tear-free visuals and buttery-smooth performance."
+                },
+                7: { 
+                    name: "Secretlab Titan", 
+                    image: "images/chair.jpg", 
+                    price: "$429",
+                    desc: "The Secretlab Titan is the gold standard in gaming chairs, designed for ultimate comfort and support. Featuring high-density cold-cure foam, an adjustable lumbar support system, and a durable PU leather finish, it ensures long-lasting comfort for marathon gaming sessions."
+                },
+                8: { 
+                    name: "Cyberpunk 2077", 
+                    image: "images/game.jpg", 
+                    price: "$39",
+                    desc: "Step into the neon-lit streets of Night City in Cyberpunk 2077, an open-world RPG from CD Projekt Red. Play as V, a mercenary with cybernetic enhancements, and shape your story in a world filled with crime, corruption, and high-tech wonders."
+                },
+                9: { 
+                    name: "Red Dead Redemption 2", 
+                    image: "images/game2.jpg", 
+                    price: "$59",
+                    desc: "Embark on an epic Western adventure in Red Dead Redemption 2. Play as Arthur Morgan, an outlaw struggling to survive in the dying days of the Wild West. Explore a vast, living world filled with dynamic events, realistic wildlife, and engaging side missions."
+                }
+            };
+
+            if (products[productId]) {
+                document.getElementById("product-image").src = products[productId].image;
+                document.getElementById("product-title").textContent = products[productId].name;
+                document.getElementById("product-price").textContent = products[productId].price;
+                document.getElementById("product-desc").textContent = products[productId].desc;
+            } else {
+                document.getElementById("product-title").textContent = "Product Not Found";
+                document.getElementById("product-desc").textContent = "The selected product does not exist.";
+            }
+        });
+    </script>
+</head>
+<body>
+    <div class="container text-center mt-5">
+        <h1 id="product-title">Product Details</h1>
+        <div class="product-detail">
+            <img id="product-image" class="img-fluid animated-img">
+            <p class="price" id="product-price"></p>
+            <p id="product-desc" class="product-description"></p>
+            <button class="btn btn-success btn-hover add-to-cart">Add to Cart</button>
+            <a href="index.html" class="btn btn-dark btn-hover">Back to Home</a>
+        </div>
+    </div>
+</body>
+</html>
